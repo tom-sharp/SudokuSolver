@@ -142,6 +142,7 @@
     <ClCompile Include="SudokuSolver.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BacktrackSolver.h" />
     <ClInclude Include="Solver.h" />
     <ClInclude Include="SolverHelp.h" />
     <ClInclude Include="Sudoku.h" />

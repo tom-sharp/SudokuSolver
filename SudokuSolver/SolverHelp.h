@@ -12,8 +12,16 @@ static const char* demopuzzle3 = "3.............9.....94..2...13..5..7.5...7.4.6
 
 
 static const char* Solver_help[] { 
-	"SudokuSolver 0.1 (cpp)",
-	"usage sudokusolver puzzlestring",
+	"SudokuSolver 0.01",
+	"   ",
+	"A simple sudoku solver that relay on a very basic backtrack solver",
+	"   ",
+	"usage sudokusolver {options} {puzzlestring}",
+	"   options:",
+	"		-? show help",
+	"		-1 solve demopuzzle 1 (easy)",
+	"		-2 solve demopuzzle 2 (medium)",
+	"		-3 solve demopuzzle 3 (hard)",
 	"   ",
 	"",
 };

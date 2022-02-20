@@ -3,6 +3,7 @@
 #include"Sudoku.h"
 #include"SolverHelp.h"
 #include"Validate.h"
+#include"BacktrackSolver.h"
 
 namespace SudokuPuzzle {
 
@@ -26,17 +27,33 @@ public:
 			return;
 		}
 		if (this->inputstring != nullptr) this->setpuzzle(this->inputstring);		
-		printf("%s\n", this->puzzle->puzzle());
+
+		printf("%s", this->puzzle->puzzle());
 		if (!this->validate.IsValid(this->puzzle)) {
-			printf("puzzle is invalid\n");
+			printf(" - puzzle is invalid\n");
 			return;
 		}
+		printf(" . start puzzle\n");
 
 
-		// code to solve
+		// back track solver
+		BacktrackSolver bt;
+		bt.Solve(this->puzzle);
 
+
+		printf("%s", this->puzzle->puzzle());
+		if (this->validate.IsSolved(this->puzzle)) {
+			printf(" - solved\n");
+			return;
+		}
+		else if (this->validate.IsValid(this->puzzle)){
+			printf(" - could not solve\n");
+			return;
+		}
+		printf(" - invalid or unsolvable\n");
 
 	}
+
 
 private:
 

@@ -32,5 +32,8 @@
     <ClInclude Include="Validate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BacktrackSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
