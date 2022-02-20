@@ -38,8 +38,7 @@ private:
 					pz2[pos] = this->workpuzzle->Undefined;
 					while(--pos >= 0) {if (pz1[pos] == this->puzzle->Undefined) break; }
 				}
-				else if (this->validate.IsValid(this->workpuzzle)) pos++;
-				printf("%s\r", pz2);
+				else if (this->validate.IsValid(this->workpuzzle, pos)) pos++;
 			}
 			else pos++;
 		}
