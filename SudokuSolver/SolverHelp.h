@@ -23,6 +23,11 @@ static const char* Solver_help[] {
 	"		-2 solve demopuzzle 2 (medium)",
 	"		-3 solve demopuzzle 3 (hard)",
 	"   ",
+	"   examples:",
+	"   sudokusolver -1",
+	"   sudokusolver 123456789",
+	"   sudokusolver 3.............9.....94..2...13..5..7.5...7.4.6....4.2354..931..8..7.........82...",
+	"   ",
 	"",
 };
 
