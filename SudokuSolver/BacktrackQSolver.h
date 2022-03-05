@@ -1,27 +1,28 @@
 #pragma once
 
-#include"SolverBase.h"
+#include "SolverBase.h"
 #include"Sudoku.h"
 #include"Validate.h"
+#include "SudokuMask.h"
 
 namespace SudokuPuzzle {
 
 
-// the most basic backtracker
-class BacktrackSolver : public SolverBase {
+// backtracker only testing qualified numbers
+class BacktrackQSolver : public SolverBase {
 
 public:
 
-	BacktrackSolver() { this->workpuzzle = new Sudoku(); this->name = new char[] {"Backtrack"}; }
-	~BacktrackSolver() { if (this->workpuzzle != nullptr) delete this->workpuzzle; }
+	BacktrackQSolver() { this->workpuzzle = new Sudoku(); this->puzzlemask = new SudokuMask(); this->name = new char[] {"Backtrack, filtered"}; }
+	~BacktrackQSolver() { if (this->workpuzzle != nullptr) delete this->workpuzzle; if (this->puzzlemask != nullptr) delete this->puzzlemask; }
 
 	bool Solve(Sudoku* sudoku) {
 		if (sudoku == nullptr) return false;
 		this->puzzle = sudoku;
 		this->workpuzzle->copy(sudoku);
+		this->puzzlemask->setupmask(sudoku);
 		return this->runsolver();
 	}
-
 
 private:
 
@@ -35,15 +36,13 @@ private:
 		while (pos >= 0 && pos < this->workpuzzle->SudokuLength) {
 			if (pz1[pos] == this->puzzle->Undefined) {
 
-				if (pz2[pos] == this->workpuzzle->Undefined) pz2[pos] = '1';
-				else pz2[pos]++;
+				pz2[pos] = this->puzzlemask->nextchar(pos, pz2[pos]);
 
-				if (pz2[pos] > '9') {
+				if (pz2[pos] == this->workpuzzle->Undefined) {
 					bcounter++;
-					pz2[pos] = this->workpuzzle->Undefined;
-					while(--pos >= 0) {if (pz1[pos] == this->puzzle->Undefined) break; }
+					while (--pos >= 0) { if (pz1[pos] == this->puzzle->Undefined) break; }
 				}
-				else { ecounter++; if (this->validate.isvalid(this->workpuzzle, pos)) pos++;}
+				else { ecounter++; if (this->validate.isvalid(this->workpuzzle, pos)) pos++; }
 			}
 			else pos++;
 		}
@@ -54,11 +53,13 @@ private:
 		return true;
 	}
 
+
 	Sudoku* puzzle = nullptr;
 	Sudoku* workpuzzle = nullptr;
 	Validate validate;
-};
+	SudokuMask* puzzlemask = nullptr;
 
+};
 
 
 }

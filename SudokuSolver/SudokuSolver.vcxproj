@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>c:\_vc\sys</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,6 +103,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>\_vc\sys;\_vcLibs\Syscore</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,10 +146,16 @@
     <ClCompile Include="SudokuSolver.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Backtrack2Solver.h" />
+    <ClInclude Include="NumpassSolver.h" />
+    <ClInclude Include="BacktrackQSolver.h" />
     <ClInclude Include="BacktrackSolver.h" />
+    <ClInclude Include="RulesSolver.h" />
     <ClInclude Include="Solver.h" />
+    <ClInclude Include="SolverBase.h" />
     <ClInclude Include="SolverHelp.h" />
     <ClInclude Include="Sudoku.h" />
+    <ClInclude Include="SudokuMask.h" />
     <ClInclude Include="Validate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -35,5 +35,23 @@
     <ClInclude Include="BacktrackSolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SolverBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RulesSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BacktrackQSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SudokuMask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumpassSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Backtrack2Solver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
